@@ -1,6 +1,6 @@
 "use client";
 
-import { CategoryTile } from "@/components/molecules";
+import { CategoryTile, ErrorState } from "@/components/molecules";
 import { ProductCarousel } from "@/components/organisms";
 import { useTopRatedProducts } from "@/lib/api/queries/productQueries";
 
@@ -9,16 +9,7 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">
-            Oops! Something went wrong
-          </h1>
-          <p className="text-gray-600">
-            Failed to load products. Please try again later.
-          </p>
-        </div>
-      </div>
+      <ErrorState message="Failed to load products. Please try again later." />
     );
   }
 
