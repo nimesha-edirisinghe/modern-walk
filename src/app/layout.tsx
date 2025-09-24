@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { QueryProvider } from "@/providers/QueryProvider";
+import { HydrationSafeBody } from "@/components/templates";
+import { HydrationBoundary } from "@/providers/HydrationBoundary";
 import { Navbar } from "@/components/organisms";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,19 +29,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden bg-gray-50`}
+        suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main>{children}</main>
-        </ThemeProvider>
+        <HydrationBoundary>
+          <HydrationSafeBody>
+            <QueryProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <Navbar />
+                <main>{children}</main>
+              </ThemeProvider>
+            </QueryProvider>
+          </HydrationSafeBody>
+        </HydrationBoundary>
       </body>
     </html>
   );

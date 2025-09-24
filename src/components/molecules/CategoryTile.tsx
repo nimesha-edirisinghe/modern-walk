@@ -16,10 +16,7 @@ export function CategoryTile({
   variant,
   className,
 }: CategoryTileProps) {
-  const colorClass =
-    variant === "mens"
-      ? "bg-green-400 hover:bg-green-500"
-      : "bg-pink-400 hover:bg-pink-500";
+  const colorClass = variant === "mens" ? "bg-brand-green" : "bg-brand-pink";
 
   return (
     <Link
