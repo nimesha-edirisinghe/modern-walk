@@ -67,7 +67,7 @@ Before you begin, ensure you have the following installed
    ```
 
 3. **Environment Configuration**
-   Create a `.env.local` file in the root directory:
+   Create a `.env.local` file in the root directory
 
    ```bash
    NEXT_PUBLIC_API_BASE_URL=https://fakestoreapi.com
