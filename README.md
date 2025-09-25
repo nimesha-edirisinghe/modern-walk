@@ -52,6 +52,20 @@
 - **Data Layer**: TanStack React Query for server state management with query keys pattern
 - **Providers**: Context-based providers for theme, queries, and hydration
 
+## Architecture Diagrams
+
+### Application Architecture
+
+![Application Architecture](src/assets/docs/application-architecture.png)
+
+The application architecture diagram shows the high-level structure of Modern Walk, illustrating how different layers interact with each other, from the UI components down to the data layer.
+
+### Data Flow Diagram
+
+![Data Flow Diagram](src/assets/docs/data-flow-diagram.png)
+
+The data flow diagram demonstrates how data moves through the application, from API requests to rendering in the UI, including the caching and state management processes.
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed
@@ -248,7 +262,7 @@ The project follows **Atomic Design** pattern
 
 The application uses **TanStack React Query v5** for efficient server state management and data fetching. This provides several benefits
 
-### Key Features
+### Features
 
 - **Intelligent Caching**: Data is cached automatically with configurable stale times
 - **Background Refetching**: Data stays fresh with automatic background updates
