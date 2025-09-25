@@ -30,15 +30,6 @@ export const useProductsByCategory = (category: string) => {
   });
 };
 
-export const useProduct = (id: number) => {
-  return useQuery({
-    queryKey: productKeys.detail(id),
-    queryFn: () => productService.getProductById(id),
-    enabled: !!id,
-    ...defaultOptions,
-  });
-};
-
 export const useTopRatedProducts = (limit?: number) => {
   return useQuery({
     queryKey: productKeys.list({ topRated: true, limit }),
