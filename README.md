@@ -33,6 +33,7 @@
 - **Linting**: [ESLint](https://eslint.org/) with Next.js configuration
 - **Code Formatting**: [Prettier](https://prettier.io/)
 - **Git Hooks**: [Husky](https://typicode.github.io/husky/) with lint-staged
+- **Commit Linting**: [Commitlint](https://commitlint.js.org/) with conventional commit standards
 - **Build Tool**: Turbopack for faster development builds
 
 ### Architecture
@@ -88,6 +89,56 @@ Before you begin, ensure you have the following installed
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint for code quality checks
 - `npm run prepare` - Set up Husky git hooks
+
+## Git Commit Guidelines
+
+This project uses [Commitlint](https://commitlint.js.org/) with [Conventional Commits](https://www.conventionalcommits.org/) to ensure consistent commit message formatting. All commit messages are automatically validated using Husky hooks.
+
+### Commit Message Format
+
+```
+<type>: <description>
+```
+
+### Allowed Types
+
+- **feat**: A new feature for the user
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc.)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **perf**: A code change that improves performance
+- **test**: Adding missing tests or correcting existing tests
+- **build**: Changes that affect the build system or external dependencies
+- **ci**: Changes to CI configuration files and scripts
+- **chore**: Other changes that don't modify src or test files
+- **revert**: Reverts a previous commit
+
+### Examples
+
+```bash
+# ✅ Valid commit messages
+git commit -m "feat: add user authentication system"
+git commit -m "fix: resolve navigation bug in mobile view"
+git commit -m "docs: update README with installation steps"
+git commit -m "chore: update dependencies to latest versions"
+git commit -m "refactor: simplify product sorting logic"
+
+# ❌ Invalid commit messages (will be rejected)
+git commit -m "added new feature"          # Missing type
+git commit -m "Fix: bug in header"         # Type should be lowercase
+git commit -m "feat: Add new feature."     # No trailing period allowed
+git commit -m "update readme"              # Missing type and proper format
+```
+
+### Validation Rules
+
+- **Type**: Must be one of the allowed types (lowercase)
+- **Description**: Must be present and not empty
+- **Case**: Description should be in lowercase
+- **Punctuation**: No trailing period in description
+
+The commit message validation runs automatically on every commit. If your message doesn't follow the convention, the commit will be rejected with helpful error messages.
 
 ## Project Structure
 
