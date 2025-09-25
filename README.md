@@ -91,6 +91,59 @@ Before you begin, ensure you have the following installed
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+## Testing
+
+The project uses Jest and React Testing Library for comprehensive unit testing. Tests are organized following the same atomic design pattern as the components.
+
+### Test Structure
+
+```
+src/
+├── components/
+│   ├── atoms/__tests__/         - Basic component tests
+│   │   ├── Button.test.tsx
+│   │   └── Tooltip.test.tsx
+│   ├── molecules/__tests__/     - Composite component tests
+│   │   ├── CategoryTile.test.tsx
+│   │   ├── ErrorState.test.tsx
+│   │   ├── ProductCard.test.tsx
+│   │   └── ThemeSwitcher.test.tsx
+│   ├── organisms/__tests__/     - Complex component tests
+│   │   └── Navbar.test.tsx
+│   └── templates/__tests__/     - Page template tests
+│       ├── CategoryPageTemplate.test.tsx
+│       └── HomePageTemplate.test.tsx
+```
+
+### Testing Tools
+
+- **Framework**: Jest v30.1.3
+- **Testing Library**: React Testing Library v16.3.0
+- **User Event Testing**: @testing-library/user-event v14.6.1
+- **Coverage Reports**: Jest built-in coverage reporter
+- **Environment**: jest-environment-jsdom for browser API simulation
+
+### Test Scripts
+
+- `npm run test` - Run all tests
+- `npm run test:watch` - Run tests in watch mode (development)
+- `npm run test:coverage` - Generate test coverage report
+- `npm run test:ci` - Run tests in CI environment
+
+### Pre-commit Hooks
+
+Tests are automatically run on staged files during commits using lint-staged:
+
+```json
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write",
+    "jest --bail --findRelatedTests"
+  ]
+}
+```
+
 ## Available Scripts
 
 - `npm run dev` - Start development server with Turbopack
@@ -98,6 +151,10 @@ Before you begin, ensure you have the following installed
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint for code quality checks
 - `npm run prepare` - Set up Husky git hooks
+- `npm run test` - Run all tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Generate test coverage report
+- `npm run test:ci` - Run tests in CI environment
 
 ## Git Commit Guidelines
 
