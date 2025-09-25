@@ -6,8 +6,11 @@
 - **Product Catalog**: Browse men's and women's clothing collections
 - **Flash Sales**: Featured top-rated products with special deals
 - **Smart Navigation**: Intuitive category-based browsing
+- **Theme Switcher**: Seamless light/dark mode toggle with system preference detection
 - **Product Carousel**: Interactive product showcases with navigation
 - **Error Handling**: Graceful error states and loading indicators
+- **Data Caching**: Intelligent caching with TanStack React Query for optimal performance
+- **Background Refetching**: Automatic data updates with configurable stale times
 - **Performance Optimized**: Built with Next.js 15 and React 19 for optimal performance
 - **Type Safe**: Full TypeScript support for robust development
 
@@ -24,7 +27,12 @@
 
 ### State Management & Data Fetching
 
-- **Data Fetching**: [TanStack Query (React Query)](https://tanstack.com/query/latest) v5
+- **Data Fetching**: [TanStack Query (React Query)](https://tanstack.com/query/latest) v5.90.2
+  - Server state management with intelligent caching
+  - Background refetching and synchronization
+  - Automatic retries with exponential backoff
+  - Built-in loading and error states
+  - React Query DevTools for debugging
 - **HTTP Client**: [Axios](https://axios-http.com/) with custom interceptors
 - **Theme Management**: [next-themes](https://github.com/pacocoursey/next-themes)
 
@@ -41,6 +49,7 @@
 - **Component Architecture**: Atomic Design (Atoms → Molecules → Organisms → Templates)
 - **Custom Hooks**: Reusable logic for text truncation and product sorting
 - **API Layer**: Centralized service layer with proper error handling
+- **Data Layer**: TanStack React Query for server state management with query keys pattern
 - **Providers**: Context-based providers for theme, queries, and hydration
 
 ## Prerequisites
@@ -157,8 +166,14 @@ src/
 ├── hooks/                  - Custom React hooks
 ├── lib/                    - Core utilities and configurations
 │   ├── api/                - API layer and services
+│   │   ├── client.ts       - Axios HTTP client configuration
+│   │   ├── keys.ts         - React Query key factories
+│   │   ├── queries/        - React Query hooks
+│   │   └── services/       - API service functions
 │   └── utils.ts            - Utility functions
 ├── providers/              - React context providers
+│   ├── QueryProvider.tsx   - TanStack React Query provider
+│   └── ThemeProvider.tsx   - Theme context provider
 ├── types/                  - TypeScript type definitions
 └── utils/                  - Helper functions
 ```
@@ -172,11 +187,23 @@ The project follows **Atomic Design** pattern
 - **Organisms**: Complex sections (Navbar, ProductCarousel)
 - **Templates**: Page layouts (CategoryPageTemplate, HydrationSafeBody)
 
+## Data Fetching with TanStack React Query
+
+The application uses **TanStack React Query v5** for efficient server state management and data fetching. This provides several benefits
+
+### Key Features
+
+- **Intelligent Caching**: Data is cached automatically with configurable stale times
+- **Background Refetching**: Data stays fresh with automatic background updates
+- **Error Handling**: Built-in error states and retry mechanisms
+- **Loading States**: Automatic loading indicators for better UX
+- **DevTools**: React Query DevTools for debugging and monitoring
+
 ## API Integration
 
-The application integrates with the [Fake Store API](https://fakestoreapi.com/) to provide
+The application integrates with the [Fake Store API](https://fakestoreapi.com/) to provide:
 
 - Product listings and details
 - Category-based filtering
 - Top-rated product recommendations
-- Real-time data with React Query caching
+- Real-time data with React Query caching and background synchronization

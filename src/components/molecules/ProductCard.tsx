@@ -18,7 +18,7 @@ export function ProductCard({
   priority = false,
 }: ProductCardProps) {
   const [titleRef, isTitleTruncated] = useTextTruncation<HTMLHeadingElement>(
-    product.title
+    product.title,
   );
   const [descriptionRef, isDescriptionTruncated] =
     useTextTruncation<HTMLParagraphElement>(product.description);
@@ -30,7 +30,7 @@ export function ProductCard({
 
   return (
     <div
-      className={cn("bg-white rounded-lg shadow-lg overflow-hidden", className)}
+      className={cn("bg-card rounded-lg shadow-lg overflow-hidden", className)}
     >
       <div className="p-4">
         <div className="h-12 flex justify-center">
@@ -39,7 +39,7 @@ export function ProductCard({
               <TooltipTrigger asChild>
                 <h3
                   ref={titleRef}
-                  className="font-semibold text-gray-900 text-center w-full px-2"
+                  className="font-semibold text-foreground text-center w-full px-2"
                   style={{
                     display: "-webkit-box",
                     WebkitLineClamp: 2,
@@ -55,7 +55,7 @@ export function ProductCard({
               </TooltipTrigger>
               <TooltipContent
                 side="top"
-                className="max-w-xs bg-white text-gray-900 border border-gray-200 shadow-lg"
+                className="max-w-xs bg-card text-foreground border border-border shadow-lg"
               >
                 <p>{product.title}</p>
               </TooltipContent>
@@ -63,7 +63,7 @@ export function ProductCard({
           ) : (
             <h3
               ref={titleRef}
-              className="font-semibold text-gray-900 text-center w-full px-2"
+              className="font-semibold text-foreground text-center w-full px-2"
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 2,
@@ -96,7 +96,7 @@ export function ProductCard({
         <div
           className={cn(
             "rounded-lg p-3 text-center flex-grow flex flex-col ",
-            cardColorClass
+            cardColorClass,
           )}
         >
           <div className="text-lg font-bold mb-2">
@@ -121,7 +121,7 @@ export function ProductCard({
               </TooltipTrigger>
               <TooltipContent
                 side="top"
-                className="max-w-sm bg-white text-gray-900 border border-gray-200 shadow-lg"
+                className="max-w-sm bg-card text-foreground border border-border shadow-lg"
               >
                 <p className="text-sm">{product.description}</p>
               </TooltipContent>

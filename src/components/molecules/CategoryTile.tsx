@@ -22,10 +22,10 @@ export function CategoryTile({
     <Link
       href={href}
       className={cn(
-        "block rounded-2xl text-white text-center p-12 transition-colors duration-200",
+        "block rounded-2xl text-card text-center p-12 transition-colors duration-200",
         "min-h-[200px] flex items-center justify-center",
         colorClass,
-        className
+        className,
       )}
     >
       <h2 className="text-3xl font-bold">{title}</h2>

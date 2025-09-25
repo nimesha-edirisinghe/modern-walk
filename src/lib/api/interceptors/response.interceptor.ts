@@ -1,24 +1,24 @@
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
 export class ApiError extends Error {
   constructor(
     message: string,
     public status: number,
-    public statusText: string
+    public statusText: string,
   ) {
     super(message);
     this.name = "ApiError";
   }
 }
 
-export const responseInterceptor = {
+const responseInterceptor = {
   onFulfilled: (response: AxiosResponse) => response,
   onRejected: (error: AxiosError) => {
     if (error.response) {
       throw new ApiError(
         `API request failed: ${error.response.statusText}`,
         error.response.status,
-        error.response.statusText
+        error.response.statusText,
       );
     } else if (error.request) {
       throw new ApiError("Network error occurred", 0, "Network Error");
@@ -26,4 +26,11 @@ export const responseInterceptor = {
       throw new ApiError("Request setup error", 0, "Request Error");
     }
   },
+};
+
+export const setupResponseInterceptor = (apiClient: AxiosInstance) => {
+  apiClient.interceptors.response.use(
+    responseInterceptor.onFulfilled,
+    responseInterceptor.onRejected,
+  );
 };

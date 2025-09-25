@@ -11,11 +11,11 @@ export function ErrorState({
 }: ErrorStateProps) {
   return (
     <div
-      className={`bg-gray-50 min-h-screen flex items-center justify-center ${className}`}
+      className={`bg-background min-h-screen flex items-center justify-center ${className}`}
     >
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-red-600 mb-4">{title}</h1>
-        <p className="text-gray-600">{message}</p>
+        <h1 className="text-2xl font-bold text-destructive mb-4">{title}</h1>
+        <p className="text-muted-foreground">{message}</p>
       </div>
     </div>
   );

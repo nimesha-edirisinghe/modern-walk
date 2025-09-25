@@ -8,10 +8,7 @@ interface HydrationSafeBodyProps {
 
 export function HydrationSafeBody({ children }: HydrationSafeBodyProps) {
   useEffect(() => {
-    // Clean up any browser extension attributes that might cause hydration issues
     const body = document.body;
-
-    // List of common browser extension attributes that cause hydration issues
     const extensionAttributes = [
       "cz-shortcut-listen",
       "data-new-gr-c-s-check-loaded",
@@ -21,7 +18,6 @@ export function HydrationSafeBody({ children }: HydrationSafeBodyProps) {
       "data-adblock-key",
     ];
 
-    // Remove extension attributes after hydration
     const timer = setTimeout(() => {
       extensionAttributes.forEach((attr) => {
         if (body.hasAttribute(attr)) {

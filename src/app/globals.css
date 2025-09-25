@@ -26,6 +26,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-skeleton: var(--skeleton);
 
   /* Custom brand colors */
   --color-brand-green: var(--brand-green);
@@ -35,8 +36,8 @@
 
 :root {
   --radius: 0.625rem;
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 3.9%);
+  --background: hsla(0, 0%, 96%, 1);
+  --foreground: hsla(0, 0%, 5%, 1);
   --card: hsl(0 0% 100%);
   --card-foreground: hsla(0, 0%, 5%, 1);
   --popover: hsl(0 0% 100%);
@@ -50,9 +51,10 @@
   --accent: hsl(0 0% 96.1%);
   --accent-foreground: hsl(0 0% 9%);
   --destructive: hsl(0 84.2% 60.2%);
-  --border: hsl(0 0% 89.8%);
+  --border: hsl(220, 13%, 91%);
   --input: hsl(0 0% 89.8%);
   --ring: hsl(0 0% 63.9%);
+  --skeleton: hsl(220, 13%, 91%);
 
   --brand-green: hsla(166, 69%, 51%, 1);
   --brand-pink: hsla(346, 100%, 68%, 1);
@@ -61,28 +63,29 @@
 
 .dark {
   --radius: 0.625rem;
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 3.9%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 3.9%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(0 0% 3.9%);
-  --primary: hsl(0 0% 9%);
-  --primary-foreground: hsl(0 0% 98%);
-  --secondary: hsl(0 0% 96.1%);
-  --secondary-foreground: hsl(0 0% 9%);
-  --muted: hsl(0 0% 96.1%);
-  --muted-foreground: hsl(0 0% 45.1%);
-  --accent: hsl(0 0% 96.1%);
-  --accent-foreground: hsl(0 0% 9%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --border: hsl(0 0% 89.8%);
-  --input: hsl(0 0% 89.8%);
-  --ring: hsl(0 0% 63.9%);
+  --background: hsl(222, 47%, 11%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 32%, 20%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(222, 47%, 11%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(210, 40%, 98%);
+  --primary-foreground: hsl(222, 47%, 11%);
+  --secondary: hsl(217, 32%, 25%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 25%);
+  --muted-foreground: hsl(215, 20%, 70%);
+  --accent: hsl(217, 32%, 25%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 40%);
+  --border: hsl(217, 32%, 25%);
+  --input: hsl(217, 32%, 25%);
+  --ring: hsl(212, 72%, 59%);
+  --skeleton: hsl(217, 32%, 25%);
 
   --brand-green: hsla(166, 69%, 51%, 1);
   --brand-pink: hsla(346, 100%, 68%, 1);
-  --brand-foreground: hsla(227, 98%, 52%, 1);
+  --brand-foreground: hsla(227, 98%, 62%, 1);
 }
 
 @layer base {

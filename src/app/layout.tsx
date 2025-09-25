@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden bg-gray-50`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden bg-background`}
         suppressHydrationWarning
       >
         <HydrationBoundary>

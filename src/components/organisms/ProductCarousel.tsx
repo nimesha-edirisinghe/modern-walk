@@ -61,13 +61,13 @@ export function ProductCarousel({
     return (
       <div className={cn("w-full", className)}>
         {title && (
-          <h2 className="text-xl font-bold text-gray-900 mb-6">{title}</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6">{title}</h2>
         )}
         <div className="flex gap-6 overflow-hidden">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
-              className="flex-shrink-0 h-96 bg-gray-200 rounded-lg animate-pulse"
+              className="flex-shrink-0 h-96 bg-skeleton rounded-lg animate-pulse"
               style={{
                 width: "calc((100% - 4.5rem) / 4)",
                 minWidth: "250px",
@@ -83,10 +83,10 @@ export function ProductCarousel({
     return (
       <div className={cn("w-full", className)}>
         {title && (
-          <h2 className="text-xl font-bold text-gray-900 mb-6">{title}</h2>
+          <h2 className="text-xl font-bold text-foreground mb-6">{title}</h2>
         )}
         <div className="text-center py-12">
-          <p className="text-gray-500">No products available</p>
+          <p className="text-muted-foreground">No products available</p>
         </div>
       </div>
     );
@@ -95,7 +95,7 @@ export function ProductCarousel({
   return (
     <div className={cn("w-full relative", className)}>
       {title && (
-        <h2 className="text-xl font-bold text-gray-900 mb-6">{title}</h2>
+        <h2 className="text-xl font-bold text-foreground mb-6">{title}</h2>
       )}
 
       <div className="relative group">
@@ -103,15 +103,15 @@ export function ProductCarousel({
           <button
             onClick={() => scroll("left")}
             className={cn(
-              "absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200",
+              "absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-card/90 hover:bg-card border hover:border-border shadow-lg rounded-full p-2 transition-all duration-200",
               "opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0",
               canScrollLeft
                 ? "cursor-pointer hover:shadow-xl"
-                : "cursor-not-allowed opacity-50"
+                : "cursor-not-allowed opacity-50",
             )}
             disabled={!canScrollLeft}
           >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
+            <ChevronLeft className="w-5 h-5 text-foreground" />
           </button>
         )}
 
@@ -119,15 +119,15 @@ export function ProductCarousel({
           <button
             onClick={() => scroll("right")}
             className={cn(
-              "absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200",
+              "absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-card/90 hover:bg-card border hover:border-border shadow-lg rounded-full p-2 transition-all duration-200",
               "opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0",
               canScrollRight
                 ? "cursor-pointer hover:shadow-xl"
-                : "cursor-not-allowed opacity-50"
+                : "cursor-not-allowed opacity-50",
             )}
             disabled={!canScrollRight}
           >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
+            <ChevronRight className="w-5 h-5 text-foreground" />
           </button>
         )}
 
